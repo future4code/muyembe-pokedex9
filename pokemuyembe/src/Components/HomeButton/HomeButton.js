@@ -1,6 +1,6 @@
 import React from "react";
 import {useHistory} from "react-router-dom";
-import {goToHomePage} from "../Routes/Coordinator";
+import {goToHomePage} from "../../Routes/Coordinator";
 
 const HomeButton = () => {
     const history = useHistory()
