@@ -9,13 +9,14 @@ const DetailStatCard = (props) => {
     useEffect(() => {
         axios.get(`${props.stat}`)
         .then((response) => {
+           // console.log(response)
             setNameStat(response.data.name)
             setValueStat(response.data.game_index)
         })
         .catch((error) => {
             console.log(error)
         })
-    }), [props.stat]
+    }, [props.stat])    
 
     return ( <div>
         <p>{nameStat}</p>

@@ -1,24 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
+import {useHistory,useParams} from "react-router-dom";
 import {goToPreviousPage} from "../../Routes/Coordinator";
-import {useParam} from "react-router-dom";
 import DetailStatCard from "../../Components/DetailStatCard";
 
 const PokemonDetailPage = () => {
-    const [detailStat, setDetailStat] = useState({})
+    const [detailStat, setDetailStat] = useState([])
     const history = useHistory();
-    const param = useParam();
+    const param = useParams(); 
 
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/stat/${param.id}`)
         .then((response) => {
-            setDetailStat(response.data.results)
+            setDetailStat(response.data)
+            console.log(response.data)
         })
         .catch((error) => {
             console.log(error)
         })
-    }, [])
+    }, [param.id])
 
     const detailStatList = detailStat.map((detail) => {
         return <DetailStatCard stat={detail.stat} />
