@@ -6,6 +6,7 @@ import axios from 'axios'
 
 export default function HomePage() {
     const [pokemons, setPokemons] = useState([])
+    const[pokedex,setPokedex] = useState([])
     const history = useHistory();
 
     useEffect(()=>{
@@ -19,7 +20,7 @@ export default function HomePage() {
     }, [])
 
     const listPokemons = pokemons.map((pokemon)=>{         
-         return <PokemonCard url={pokemon.url}/>
+         return <PokemonCard url={pokemon.url}  />
     })
     
     return (

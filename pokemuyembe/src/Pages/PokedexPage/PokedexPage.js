@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom";
 import {goToHomePage,goToPokemonDetailPage} from "../../Routes/Coordinator";
 
 const PokedexPage = () => {
-    const history = useHistory();
+    const history = useHistory();   
     
     return (
         <div className="pokedex-container">

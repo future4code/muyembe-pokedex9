@@ -15,7 +15,7 @@ const DetailStatCard = (props) => {
         .catch((error) => {
             console.log(error)
         })
-    }), [props.stat]
+    }, [props.stat])    
 
     return ( <div>
         <p>{nameStat}</p>

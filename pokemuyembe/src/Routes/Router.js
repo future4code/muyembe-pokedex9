@@ -9,8 +9,11 @@ export default function Router() {
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/:id">
+                <Route exact path="/">
                     <HomePage/>
+                </Route>
+                <Route exact path="/pokemon-details/:id">
+                    <PokemonDetailPage/>
                 </Route>
                 <Route exact path="/pokemon-details">
                     <PokemonDetailPage/>
