@@ -7,12 +7,12 @@ import DetailStatCard from "../../Components/DetailStatCard";
 const PokemonDetailPage = () => {
     const [detailStat, setDetailStat] = useState([])
     const history = useHistory();
-    const param = useParams();
+    const param = useParams(); 
 
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/stat/${param.id}`)
         .then((response) => {
-            //setDetailStat(response.data)
+            setDetailStat(response.data)
             console.log(response.data)
         })
         .catch((error) => {

@@ -11,11 +11,11 @@ export default function Router() {
             <Switch>
                 <Route exact path="/">
                     <HomePage/>
-                </Route>
-                <Route exact path="/pokemon-details/:id">
+                </Route>                
+                <Route exact path="/pokemon-details">
                     <PokemonDetailPage/>
                 </Route>
-                <Route exact path="/pokemon-details">
+                <Route exact path="/pokemon-details/:id">
                     <PokemonDetailPage/>
                 </Route>
                 <Route exact path="/pokedex">
