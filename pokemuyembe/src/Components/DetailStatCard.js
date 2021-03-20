@@ -1,26 +1,13 @@
-import axios from 'axios';
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 
 
 const DetailStatCard = (props) => {
-    const [nameStat, setNameStat] = useState("")
-    const [valueStat, setValueStat] = useState("")
+    const [stat, setStat] = useState({})
     
-    useEffect(() => {
-        axios.get(`${props.stat}`)
-        .then((response) => {
-           // console.log(response)
-            setNameStat(response.data.name)
-            setValueStat(response.data.game_index)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }, [props.stat])    
-
+    console.log(props.stat.stat.name);
     return ( <div>
-        <p>{nameStat}</p>
-        <p>{valueStat}</p>
+        <p>{props.stat.base_stat}</p>
+        <p>{props.stat.stat.name}</p>
     </div>
 
     )
