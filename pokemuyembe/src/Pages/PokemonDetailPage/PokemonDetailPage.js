@@ -5,14 +5,14 @@ import {goToPreviousPage} from "../../Routes/Coordinator";
 import DetailStatCard from "../../Components/DetailStatCard";
 
 const PokemonDetailPage = () => {
-    const [detailStat, setDetailStat] = useState([])
+    const [detail, setDetail] = useState({})
     const history = useHistory();
     const param = useParams(); 
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/stat/${param.id}`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${param.id}`)
         .then((response) => {
-            setDetailStat(response.data)
+            setDetail(response.data)
             console.log(response.data)
         })
         .catch((error) => {
@@ -20,9 +20,10 @@ const PokemonDetailPage = () => {
         })
     }, [param.id])
 
-    const detailStatList = detailStat.map((detail) => {
-        return <DetailStatCard stat={detail.stat} />
+    const detailStatList = detail.stats?.map((detail) => {
+        return <DetailStatCard stat={detail} />
     })
+    
     return (
         <div className="home-container">
             <h1>Página de detalhes do pokemon</h1>
