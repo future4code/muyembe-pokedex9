@@ -1,11 +1,14 @@
-import React from "react";
+import React,{useState} from "react";
+import { ContextPokemon } from "./context/context";
 import Router from "./Routes/Router";
 
 function App() {
+  const [pokemons, setPokemons] = useState([])
+  const[pokedex,setPokedex] = useState([])
   return (
-    <div>
+    <ContextPokemon.Provider value={{pokemons,setPokemons,pokedex,setPokedex}}>
         <Router />
-    </div>
+    </ContextPokemon.Provider>
   );
 }
 
