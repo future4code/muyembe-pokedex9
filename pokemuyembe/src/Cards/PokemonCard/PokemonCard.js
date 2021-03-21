@@ -17,7 +17,7 @@ const PokemonCard = (props)=>{
         .catch((error)=>{
              console.log(error)
         })
-    },[props.url])   
+    },[props.url])
     
     const addPokemon= (pokemon) =>{        
         const newPokeList = [...pokedexList.pokedex, pokemon]           
