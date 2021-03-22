@@ -1,9 +1,8 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { DetailStatContainer, DetailStatName, DetailStatValue } from "./styled";
 
 
 const DetailStatCard = (props) => {
-    //const [statInfo, setStatInfo] = useState({})
 
     return (    
         <DetailStatContainer>

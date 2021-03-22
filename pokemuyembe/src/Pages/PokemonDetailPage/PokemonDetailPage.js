@@ -1,10 +1,10 @@
 import axios from "axios";
-
 import React, { useEffect, useState } from "react";
 import {useHistory,useParams} from "react-router-dom";
 import {goToPreviousPage} from "../../Routes/Coordinator";
-import DetailStatCard from "../../Cards/DetailStatCard/DetailStatCard";
-import DetailTypeCard from "../../Cards/DetailTypeCard/DetailTypeCard";
+import DetailStatCard from "../../Components/DetailStatCard/DetailStatCard";
+import DetailTypeCard from "../../Components/DetailTypeCard/DetailTypeCard";
+import DetailMoveCard from "../../Components/DetailMoveCard/DetailMoveCard";
 import {DetailPageContainer, DetailsList} from "./styled";
 
 const PokemonDetailPage = () => {
@@ -27,6 +27,10 @@ const PokemonDetailPage = () => {
     const detailTypeList = details.types?.map((detail) => {
         return <DetailTypeCard type={detail}/>
     })
+
+    const detailMoveList = details.abilities?.map((detail) => {
+        return <DetailMoveCard move={detail}/>
+    })
     
     return (
         <DetailPageContainer>
@@ -34,6 +38,7 @@ const PokemonDetailPage = () => {
             <DetailsList>
                 <div>{detailStatList}</div>
                 <div>{detailTypeList}</div>
+                <div>{detailMoveList}</div>
             </DetailsList>
             <button onClick={() =>goToPreviousPage(history)}>Voltar</button>
             <button>Adicionar / Remover da Pokedex</button>

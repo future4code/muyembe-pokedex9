@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const DetailTypeContainer = styled.div`
+export const DetailMoveContainer = styled.div`
    width: 240px;
    height: 100px;
    border: 1px solid;
-   background-color: purple;
+   background-color: darkblue;
    color:white;
    text-align: center;
    display: flex;
@@ -13,7 +13,7 @@ export const DetailTypeContainer = styled.div`
    border: 1px solid white;
 `
 
-export const DetailTypeName = styled.div`
+export const DetailMoveName = styled.div`
    width: 240px;
    height: 50px;
    display: flex;
