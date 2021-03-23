@@ -10,8 +10,7 @@ const PokedexPage = () => {
 
     const listPokemons = listPokedex.pokedex.map((pokemon)=>{             
         return <PokemonCard url={pokemon.url} pokemon={pokemon} />
-   })
-   
+   })  
    
     return (
         <div className="pokedex-container">

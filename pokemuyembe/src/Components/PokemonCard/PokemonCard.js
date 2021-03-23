@@ -24,15 +24,22 @@ const PokemonCard = (props)=>{
         return pokemon === props.pokemon
     })   
     
-    const addPokemon= (pokemon) =>{            
+    const addPokemon= (pokemon) =>{          
+       
         const newPokeList = [...pokedexList.pokedex, pokemon]           
-        pokedexList.setPokedex(newPokeList)      
+        pokedexList.setPokedex(newPokeList)    
+   
     } 
     
     const removePokemon = (pokemon) =>{
 
-    }
-   
+        const listPokedexFiltered = pokedexList.pokedex && pokedexList.pokedex.filter((poke)=>{
+              return poke !== pokemon
+        }) 
+
+        pokedexList.setPokedex(listPokedexFiltered)     
+    }    
+    
     return  <div>
                 <img src={urlImagePokemon} />                
                  {existPokemon?
