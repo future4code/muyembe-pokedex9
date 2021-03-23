@@ -11,17 +11,16 @@ export default function HomePage() {
     const history = useHistory();   
 
     useEffect(()=>{
-        axios.get('https://pokeapi.co/api/v2/pokemon')
-        .then((response)=>{            
-            pokeList.setPokemons(response.data.results)
-        })
-        .catch((error) =>{
-            console.log(error)
-        })
-    }, [pokeList])
+        pokeList.getPokemons()
+    }, [])    
    
-    const listPokemons = pokeList.pokemons.map((pokemon)=>{             
-         return <PokemonCard url={pokemon.url} pokemon={pokemon} />
+    const listPokemons = pokeList.pokemons.map((pokemon)=>{ 
+
+        const existPokemon =  pokeList.pokedex.some((poke)=>{
+            return pokemon.name === poke.name
+        })   
+               
+        return existPokemon?<div></div>:<PokemonCard url={pokemon.url} pokemon={pokemon} />
     })
     
     return (
