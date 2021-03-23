@@ -17,7 +17,8 @@ const PokemonCard = (props)=>{
         .catch((error)=>{
              console.log(error)
         })
-    },[props.url])  
+
+    },[props.url])
     
     const existPokemon =  pokedexList.pokedex.some((pokemon)=>{
         return pokemon === props.pokemon
