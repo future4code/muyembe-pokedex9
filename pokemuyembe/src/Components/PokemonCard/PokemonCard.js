@@ -5,7 +5,7 @@ import {goToPokemonDetailPage} from '../../Routes/Coordinator'
 import  {ContextPokemon} from '../../context/context'
 
 const PokemonCard = (props)=>{
-    const pokedexList = useContext(ContextPokemon)    
+    const pokedexList = useContext(ContextPokemon)
     const[urlImagePokemon, setUrlImagePokemon] = useState('')
     const history = useHistory()
 
@@ -39,6 +39,10 @@ const PokemonCard = (props)=>{
 
         pokedexList.setPokedex(listPokedexFiltered)     
     }    
+
+    const goToPokemonDetailPage = () => {
+       
+    } //
     
     return  <div>
                 <img src={urlImagePokemon} />                
