@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom";
 import { ContextPokemon } from "../../context/context";
 import {goToHomePage,goToPokemonDetailPage} from "../../Routes/Coordinator";
 import PokemonCard from '../../Components/PokemonCard/PokemonCard'
+import {ContainerListPokedex} from './styled'
 
 const PokedexPage = () => {
     const history = useHistory(); 
@@ -17,7 +18,7 @@ const PokedexPage = () => {
             <h1>Pokedex - Pokemons adicionados</h1>
             <button onClick={() =>goToHomePage(history)}>Voltar para lista de pokemons</button>
             <button onClick={()=>goToPokemonDetailPage(history)}>Detalhar pokemon</button>
-            {listPokemons}
+            <ContainerListPokedex>{listPokemons}</ContainerListPokedex>
         </div>
     )
 }
