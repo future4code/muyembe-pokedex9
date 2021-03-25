@@ -8,6 +8,8 @@ export const PokeCard = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content:center;
+    background-color:#BCC0C1;
+    margin-right:10px;
   
 `
 

@@ -16,8 +16,7 @@ const PokedexPage = () => {
     return (
         <div className="pokedex-container">
             <h1>Pokedex - Pokemons adicionados</h1>
-            <button onClick={() =>goToHomePage(history)}>Voltar para lista de pokemons</button>
-            <button onClick={()=>goToPokemonDetailPage(history)}>Detalhar pokemon</button>
+            <button onClick={() =>goToHomePage(history)}>Voltar para lista de pokemons</button>            
             <ContainerListPokedex>{listPokemons}</ContainerListPokedex>
         </div>
     )

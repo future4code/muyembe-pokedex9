@@ -35,13 +35,13 @@ const PokemonDetailPage = () => {
     return (
         <DetailPageContainer>
             <h1>Página de detalhes do pokemon</h1>
+            <button onClick={() =>goToPreviousPage(history)}>Voltar</button>
+            <button>Adicionar / Remover da Pokedex</button>
             <DetailsList>
                 <div>{detailStatList}</div>
                 <div>{detailTypeList}</div>
                 <div>{detailMoveList}</div>
-            </DetailsList>
-            <button onClick={() =>goToPreviousPage(history)}>Voltar</button>
-            <button>Adicionar / Remover da Pokedex</button>
+            </DetailsList>            
         </DetailPageContainer>
     )
 }
