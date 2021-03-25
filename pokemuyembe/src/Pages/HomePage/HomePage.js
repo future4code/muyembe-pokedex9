@@ -4,6 +4,7 @@ import {goToPokedexPage} from "../../Routes/Coordinator";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import axios from 'axios'
 import { ContextPokemon } from "../../context/context";
+import {ContainerListPokemons} from './styled'
 
 export default function HomePage() {
     
@@ -27,7 +28,7 @@ export default function HomePage() {
         <div className="home-container">
             <h1>Lista de Pokemons API</h1>
             <button onClick={() =>goToPokedexPage(history)}>Ir para Pokedex</button>            
-            {listPokemons}
+            <ContainerListPokemons>{listPokemons}</ContainerListPokemons>
         </div>
     )
 }
