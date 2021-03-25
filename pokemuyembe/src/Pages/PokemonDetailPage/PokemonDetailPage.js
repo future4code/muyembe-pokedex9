@@ -13,7 +13,7 @@ const PokemonDetailPage = () => {
     const param = useParams(); 
 
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${param.id}`)
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${param.pokeName}`)
         .then((response) => {
             setDetails(response.data)
             console.log(response.data)

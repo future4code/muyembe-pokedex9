@@ -39,11 +39,7 @@ const PokemonCard = (props)=>{
         }) 
 
         pokedexList.setPokedex(listPokedexFiltered)     
-    }    
-
-    const goToPokemonDetailPage = () => {
-       
-    } //
+    } 
     
     return  <PokeCard>
                 <img src={urlImagePokemon} alt="pokemon" /> 
@@ -52,7 +48,7 @@ const PokemonCard = (props)=>{
                     <button onClick={()=>removePokemon(props.pokemon)}>Remover</button>
                     :<button onClick={()=>addPokemon(props.pokemon)}>Adicionar</button>
                     }                  
-                    <button onClick={()=>goToPokemonDetailPage(history)}>Ver Detalhes</button>                    
+                    <button onClick={()=>goToPokemonDetailPage(history,props.pokemon.name)}>Ver Detalhes</button>                    
                 </ContainerButton>               
            </PokeCard>
     }
