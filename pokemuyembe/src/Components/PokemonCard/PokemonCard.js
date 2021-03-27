@@ -3,7 +3,7 @@ import React,{useState,useEffect,useContext} from 'react'
 import{useHistory} from 'react-router-dom'
 import {goToPokemonDetailPage} from '../../Routes/Coordinator'
 import  {ContextPokemon} from '../../context/context'
-import {PokeCard,ContainerButton} from './styled'
+import {PokeCard,ContainerButton,ButtonAddPokemon,ButtonRemovePokemon,ButtonDetailPokemon} from './styled'
 
 const PokemonCard = (props)=>{
     const pokedexList = useContext(ContextPokemon)
@@ -45,10 +45,10 @@ const PokemonCard = (props)=>{
                 <img src={urlImagePokemon} alt="pokemon" /> 
                 <ContainerButton>
                     {existPokemon?
-                    <button onClick={()=>removePokemon(props.pokemon)}>Remover</button>
-                    :<button onClick={()=>addPokemon(props.pokemon)}>Adicionar</button>
+                    <ButtonRemovePokemon onClick={()=>removePokemon(props.pokemon)}>Remover</ButtonRemovePokemon>
+                    :<ButtonAddPokemon onClick={()=>addPokemon(props.pokemon)}>Adicionar</ButtonAddPokemon>
                     }                  
-                    <button onClick={()=>goToPokemonDetailPage(history,props.pokemon.name)}>Ver Detalhes</button>                    
+                    <ButtonDetailPokemon onClick={()=>goToPokemonDetailPage(history,props.pokemon.name)}>Ver Detalhes</ButtonDetailPokemon>                    
                 </ContainerButton>               
            </PokeCard>
     }

@@ -16,6 +16,15 @@ export const PokeCard = styled.div`
 export const ContainerButton = styled.div`
       button{
          margin-left:15px;
-      }
-      
+         color:#fff;
+      }      
+`
+export const ButtonAddPokemon = styled.button`
+       background-color:#056712;
+`
+export const ButtonRemovePokemon = styled.button`
+       background-color:#F7083F;
+`
+export const ButtonDetailPokemon = styled.button`
+       background-color:#083C8A;
 `

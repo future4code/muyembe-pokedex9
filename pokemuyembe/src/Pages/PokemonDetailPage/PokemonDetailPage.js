@@ -18,7 +18,7 @@ const PokemonDetailPage = () => {
             setDetails(response.data)
             console.log(response.data)
         })
-    }, [param.id])
+    }, [param.pokeName])
 
     const detailStatList = details.stats?.map((detail) => {
         return <DetailStatCard stat={detail}/>
