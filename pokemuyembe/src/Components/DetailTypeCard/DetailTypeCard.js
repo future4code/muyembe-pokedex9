@@ -6,7 +6,7 @@ const DetailTypeCard = (props) => {
 
     return (    
         <DetailTypeContainer>
-            <DetailTypeName key={props.id}> {props.type.type.name} </DetailTypeName>
+            <DetailTypeName> {props.type.type.name} </DetailTypeName>
         </DetailTypeContainer>
     )
 }

@@ -6,8 +6,8 @@ const DetailStatCard = (props) => {
 
     return (    
         <DetailStatContainer>
-            <DetailStatName key={props.id}>{props.stat.stat.name}</DetailStatName>
-            <DetailStatValue key={props.id}>{props.stat.base_stat}</DetailStatValue>
+            <DetailStatName>{props.statName.stat.name}</DetailStatName>
+            <DetailStatValue>{props.statValue.base_stat}</DetailStatValue>
         </DetailStatContainer>
     )
 }
