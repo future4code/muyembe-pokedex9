@@ -9,6 +9,8 @@ import {DetailPageContainer, DetailsList} from "./styled";
 
 const PokemonDetailPage = () => {
     const [details, setDetails] = useState({})
+    const [frontImg, setFrontImg] = useState({})
+    const [backImg, setBackImg] = useState({})
     const history = useHistory();
     const param = useParams(); 
 
@@ -16,19 +18,20 @@ const PokemonDetailPage = () => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${param.pokeName}`)
         .then((response) => {
             setDetails(response.data)
-            console.log(response.data)
+            setFrontImg(response.data.sprites.front_default)
+            setBackImg(response.data.sprites.back_default)
         })
     }, [param.pokeName])
 
     const detailStatList = details.stats?.map((detail) => {
-        return <DetailStatCard stat={detail}/>
+        return <DetailStatCard statName={detail} statValue={detail}/>
     })
 
     const detailTypeList = details.types?.map((detail) => {
         return <DetailTypeCard type={detail}/>
     })
 
-    const detailMoveList = details.abilities?.map((detail) => {
+    const detailMoveList = details.moves?.map((detail) => {
         return <DetailMoveCard move={detail}/>
     })
     
@@ -37,6 +40,10 @@ const PokemonDetailPage = () => {
             <h1>Página de detalhes do pokemon</h1>
             <button onClick={() =>goToPreviousPage(history)}>Voltar</button>
             <button>Adicionar / Remover da Pokedex</button>
+
+            <img src={frontImg} alt="imagem do pokemon de frente"/>
+            <img src={backImg} alt="imagem do pokemon de costas"/>
+
             <DetailsList>
                 <div>{detailStatList}</div>
                 <div>{detailTypeList}</div>

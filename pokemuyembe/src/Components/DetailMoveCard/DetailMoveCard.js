@@ -5,7 +5,7 @@ const DetailMoveCard = (props) => {
 
     return (    
         <DetailMoveContainer>
-            <DetailMoveName key={props.id}>{props.move.ability.name}</DetailMoveName>
+            <DetailMoveName>{props.move.move.name}</DetailMoveName>
         </DetailMoveContainer>
     )
 }
