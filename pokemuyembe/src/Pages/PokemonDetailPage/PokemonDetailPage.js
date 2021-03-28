@@ -36,8 +36,9 @@ const PokemonDetailPage = () => {
     })
 
     const detailMoveList = details.moves?.map((detail) => {
-        return <DetailMoveCard move={detail}/>
+        return <DetailMoveCard move={detail} />
     })
+    console.log(details)
 
     const verifyPokemon =(namePokemon)=>{       
         const existPokemon =  pokedexList.pokedex.some((pokemon)=>{
