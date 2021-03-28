@@ -5,10 +5,11 @@ import {goToPreviousPage} from "../../Routes/Coordinator";
 import DetailStatCard from "../../Components/DetailStatCard/DetailStatCard";
 import DetailTypeCard from "../../Components/DetailTypeCard/DetailTypeCard";
 import DetailMoveCard from "../../Components/DetailMoveCard/DetailMoveCard";
-import {DetailPageContainer, DetailsList} from "./styled";
+import {DetailPageContainer, DetailPageHeader, GoBackButton, PokeNameTitle, AddRemoveButton, DetailPageMain, DetailImgFront, DetailImgBack, DetailsList, DetailStat, DetailType, DetailMove} from "./styled";
 
 const PokemonDetailPage = () => {
     const [details, setDetails] = useState({})
+    const [pokemonName, setPokemonName] = useState("")
     const [frontImg, setFrontImg] = useState({})
     const [backImg, setBackImg] = useState({})
     const history = useHistory();
@@ -18,6 +19,7 @@ const PokemonDetailPage = () => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${param.pokeName}`)
         .then((response) => {
             setDetails(response.data)
+            setPokemonName(response.data.name)
             setFrontImg(response.data.sprites.front_default)
             setBackImg(response.data.sprites.back_default)
         })
@@ -37,18 +39,30 @@ const PokemonDetailPage = () => {
     
     return (
         <DetailPageContainer>
-            <h1>Página de detalhes do pokemon</h1>
-            <button onClick={() =>goToPreviousPage(history)}>Voltar</button>
-            <button>Adicionar / Remover da Pokedex</button>
 
-            <img src={frontImg} alt="imagem do pokemon de frente"/>
-            <img src={backImg} alt="imagem do pokemon de costas"/>
+            <DetailPageHeader>
 
-            <DetailsList>
-                <div>{detailStatList}</div>
-                <div>{detailTypeList}</div>
-                <div>{detailMoveList}</div>
-            </DetailsList>            
+                <GoBackButton onClick={() =>goToPreviousPage(history)}>Voltar</GoBackButton>
+                <PokeNameTitle>{pokemonName}</PokeNameTitle>
+                <AddRemoveButton>Adicionar / Remover da Pokedex</AddRemoveButton>
+
+            </DetailPageHeader>
+
+            <DetailPageMain>
+
+                <DetailImgFront src={frontImg} alt="imagem do pokemon de frente"/>
+                <DetailImgBack src={backImg} alt="imagem do pokemon de costas"/>            
+
+                <DetailsList>
+                    
+                    <DetailStat><h2>STATUS</h2> {detailStatList} </DetailStat>
+                    <DetailType><h2>TIPO</h2> {detailTypeList} </DetailType>
+                    <DetailMove><h2>ATAQUES</h2> {detailMoveList}</DetailMove>
+
+                </DetailsList>
+
+            </DetailPageMain>
+
         </DetailPageContainer>
     )
 }

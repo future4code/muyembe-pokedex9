@@ -6,16 +6,16 @@ export const DetailTypeContainer = styled.div`
    border: 1px solid;
    background-color: darkgreen;
    color:white;
-   text-align: center;
    display: flex;
    flex-direction: column;
    border-radius: 10px;
-   border: 1px solid white;
+   border: 1px solid lightslategray;
+   box-shadow: 5px 5px lightslategray;
 `
 
 export const DetailTypeName = styled.div`
    width: 240px;
-   height: 50px;
+   height: 100px;
    display: flex;
    justify-content: center;
    align-items: center;
