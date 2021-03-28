@@ -12,7 +12,7 @@ export default function HomePage() {
 
     useEffect(()=>{
         pokeList.getPokemons()
-    }, [])    
+    }, [pokeList.valueInitial])    
    
     const listPokemons = pokeList.pokemons.map((pokemon)=>{ 
 
@@ -26,7 +26,9 @@ export default function HomePage() {
     return (
         <div className="home-container">
             <h1>Lista de Pokemons API</h1>
-            <button onClick={() =>goToPokedexPage(history)}>Ir para Pokedex</button>            
+            <button onClick={() =>goToPokedexPage(history)}>Ir para Pokedex</button>  
+            <button onClick={()=>pokeList.setValueInitial(pokeList.valueInitial + 1)}>Próxima Página</button>  
+            {pokeList.valueInitial > 0?<button onClick={()=>pokeList.setValueInitial(pokeList.valueInitial - 1)}>Página Anterior</button>:<div></div> }         
             <ContainerListPokemons>{listPokemons}</ContainerListPokemons>
         </div>
     )
