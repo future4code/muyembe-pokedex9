@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import {useHistory} from "react-router-dom";
 import { ContextPokemon } from "../../context/context";
-import {goToHomePage,goToPokemonDetailPage} from "../../Routes/Coordinator";
+import {goToHomePage} from "../../Routes/Coordinator";
 import PokemonCard from '../../Components/PokemonCard/PokemonCard'
 import {ContainerListPokedex} from './styled'
 

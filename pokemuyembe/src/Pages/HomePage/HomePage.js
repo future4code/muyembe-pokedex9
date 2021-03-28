@@ -2,7 +2,6 @@ import React,{useEffect,useContext} from "react";
 import {useHistory} from "react-router-dom";
 import {goToPokedexPage} from "../../Routes/Coordinator";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
-import axios from 'axios'
 import { ContextPokemon } from "../../context/context";
 import {ContainerListPokemons} from './styled'
 
