@@ -42,13 +42,18 @@ const PokemonDetailPage = () => {
     const verifyPokemon =(namePokemon)=>{       
         const existPokemon =  pokedexList.pokedex.some((pokemon)=>{
             return pokemon.name === namePokemon
-        })  
-        console.log(existPokemon)
+        })        
         if(existPokemon){
            removePokemon(namePokemon)
            alert("pokemon removido da pokedex")
         } else {
-           alert("pokemon adicionado")
+            pokedexList.pokemons.map((pokemon)=>{
+                if(pokemon.name === namePokemon){
+                    addPokemon(pokemon)
+                    alert("pokemon adicionado na pokedex")
+                }
+                return true
+            })             
         }     
     }
 
@@ -60,6 +65,13 @@ const PokemonDetailPage = () => {
 
         pokedexList.setPokedex(listPokedexFiltered)     
     } 
+
+    const addPokemon= (pokemon) =>{          
+       
+        const newPokeList = [...pokedexList.pokedex, pokemon]           
+        pokedexList.setPokedex(newPokeList)    
+   
+    } 
     
     return (
         <DetailPageContainer>
@@ -68,7 +80,7 @@ const PokemonDetailPage = () => {
 
                 <GoBackButton onClick={() =>goToPreviousPage(history)}>Voltar</GoBackButton>
                 <PokeNameTitle>{pokemonName}</PokeNameTitle>
-                <AddRemoveButton onClick={()=>verifyPokemon(param.pokeName)}>Adicionar / Remover da Pokedex</AddRemoveButton>
+                <AddRemoveButton onClick={()=>verifyPokemon(pokemonName)}>Adicionar / Remover da Pokedex</AddRemoveButton>
 
             </DetailPageHeader>
 
